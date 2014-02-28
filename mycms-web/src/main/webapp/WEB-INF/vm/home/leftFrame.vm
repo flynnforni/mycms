@@ -1,0 +1,324 @@
+#set($layout="defaultLayout.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jd-cms</title>
+<link rel="stylesheet" type="text/css" href="$assetModule.getTarget("/pop-man/201007/skin/erpbase.css")" media="all" />
+<script type="text/javascript" src="$assetModule.getTarget("/js/jquery-1.4.2.min.js")"></script>
+</head>
+
+<body id="leftframe">
+	<div id="popmenu">popmenu
+	</div>
+	<div id="control" class="control">control</div>
+		<script type="text/javascript">
+		(function(){
+			var jdMenu={
+                _m1:[{
+					href:"$!homeModule.getTarget("/admin/position/list.action")",
+					text:"位置及内容管理",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/clientscreen/list.action")",
+					text:"活动客户端图片管理",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/appindex/listXXX.action")",
+					text:"首页配置商品信息管理",
+					child:[]
+				},{
+                    href:"$!homeModule.getTarget("/admin/promotion/promotionsList.action")",
+                    text:"分类促销专题管理",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/page/list.action")",
+                    text:"生成落地页",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/click/index.action")",
+                    text:"链接管理",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/delcache/index.action")",
+                    text:"删除缓存",
+                    child:[]
+                }],
+                _m2:[{
+					href:"$!homeModule.getTarget("/admin/block/list.action")",
+					text:"区域模块管理",
+					child:[]
+					},{
+					href:"$!homeModule.getTarget("/admin/shorturl/list.action")",
+					text:"短域名管理",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/news/list.action")",
+					text:"新闻消息管理",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/bank/list.action")",
+					text:"移动支付银行管理",
+					child:[]
+				}],			
+				_m3:[{
+					href:"$!homeModule.getTarget("/admin/appindex/list.action")",
+					text:"首页配置",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/client/list.action")",
+					text:"客户端管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/hotword/list.action")",
+					text:"客户端热词管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/remind/list.action")",
+					text:"沉默用户激活管理",
+					child:[]
+                },{
+					href:"$!homeModule.getTarget("/admin/startimg/list.action")",
+					text:"客户端启动图管理",
+					child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/catalog/list.action")",
+                    text:"分类图片管理",
+                    child:[]
+                },{           
+                    href:"$!homeModule.getTarget("/admin/userLevel/list.action")",
+                    text:"用户级别头像管理",
+                    child:[]
+                },{
+					href:"$!homeModule.getTarget("/admin/categorylist/list.action")",
+					text:"客户端订单管理",
+					child:[]
+                }],
+                _m4:[{
+                  href:"$!homeModule.getTarget("/admin/msgAppleToSend/list.action")",
+					text:"待发送消息管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/msgPushRecord/list.action")",
+					text:"已发送消息管理",
+					child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/deviceToken/list.action")",
+					  text:"消息设备表管理",
+					  child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/msgType/list.action")",
+					text:"移动消息分类表管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/bcmsg/list.action")",
+					text:"广播消息表管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/bcMsgSubscribe/list.action")",
+					text:"广播消息订阅管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/userMsgSubscribe/list.action")",
+					text:"用户消息订阅管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/readedBCMsg/list.action")",
+					text:"广播消息已读管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/msgReadRecord/list.action")",
+					text:"用户已读消息管理",
+					child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/workerManager/workerList.action")",
+                    text:"消息系统worker维护",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/pullTimeManager/pullTimeList.action")",
+                    text:"平台拉取时间管理",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/customizedMsg/list.action")",
+                    text:"定制推送消息",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/operatecache/edit.action")",
+                    text:"操作redis缓存",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/msgStatistics/list.action")",
+                    text:"消息相关统计",
+                    child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/cmsAuthority/list.action")",
+                    text:"cms权限管理",
+                    child:[]
+                }],
+                _m5:[{
+                  href:"$!homeModule.getTarget("/admin/offlinevendor/offlinevendorList.action")",
+					text:"门店或合作商家信息管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/vendortype/vendortypeList.action")",
+					text:"商家类型管理",
+					child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/coupon/coupon1List.action")",
+					  text:"优惠券信息管理",
+					  child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/vendortype2coupon/vendortype2couponList.action")",
+					text:"商家类型和优惠券对应管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/location/locationList.action")",
+					text:"商家LBS分块管理",
+					child:[]
+                },{
+                  href:"$!homeModule.getTarget("/admin/userhavedcoupon/userhavedcouponList.action")",
+					text:"用户优惠劵领取管理",
+					child:[]
+                }],
+                 _m6:[{
+                  href:"$!homeModule.getTarget("/admin/pricereportrecord/pricereportrecordList.action")",
+					text:"价格举报管理",
+					child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/pricesreport/pricesreportlist.action")",
+					  text:"优惠券信息管理",
+					  child:[]
+                },{
+                    href:"$!homeModule.getTarget("/admin/pricereportawardcoupon/pricereportawardcouponList.action")",
+					  text:"领取优惠劵信息",
+					  child:[]
+                }],
+                /*_m4:[ {
+					href:"$!homeModule.getTarget("/admin/partner/list.action")",
+					text:"渠道管理",
+					child:[]
+                }
+                // added by zhuguoyin at 2011-07-11 start
+                ,{
+					href:"$!homeModule.getTarget("/admin/cpadevice/list.action")",
+					text:"cpa装机注册信息",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/unionStat/clickList.action")",
+					text:"CPS点击统计",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/unionStat/downloadList.action")",
+					text:"客户端下载统计",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/unionStat/inOutList.action")",
+					text:"导入导出流量统计",
+					child:[]
+				},{
+					href:"$!homeModule.getTarget("/admin/unionStat/showList.action")",
+					text:"展现统计",
+					child:[]
+				}
+                // added by zhuguoyin at 2011-07-11 end
+                ],
+                _m5:[ {
+					href:"http://stat.m.360buy.com/stat/setup/dashboard.action",
+					text:"安装量统计",
+					child:[]
+                }
+                ,{
+					href:"http://stat.m.360buy.com/stat/visit/dashboard.action",
+					text:"访问量统计",
+					child:[]
+				},{
+					href:"http://stat.m.360buy.com/stat/register/dashboard.action",
+					text:"注册量统计",
+					child:[]
+				},{
+					href:"http://stat.m.360buy.com/stat/login/dashboard.action",
+					text:"登录量统计",
+					child:[]
+				},{
+					href:"http://stat.m.360buy.com/stat/order/dashboard.action",
+					text:"下单量统计",
+					child:[]
+				} ,{
+					href:"$!homeModule.getTarget("/admin/dimApp/list.action")",
+					text:"应用维度管理",
+					child:[]
+				} ,{
+					href:"$!homeModule.getTarget("/admin/dimPartner/list.action")",
+					text:"渠道维度管理",
+					child:[]
+				} ,{
+					href:"$!homeModule.getTarget("/admin/dimPlatform/list.action")",
+					text:"平台维度管理",
+					child:[]
+				}
+                ]*/
+
+			};
+			var initMenu=function(obj){
+				parent.document.getElementsByTagName('frameset')[1].cols='169,*'
+				document.getElementById('popmenu').style.display="";
+				document.getElementById('control').className="control";
+				var html="";
+				for (var i=0;i<obj.length;i++){
+					var css=(i==0)?"curr":"";
+					html+="<dl class='"+ css +"'>";
+					html+="<dt><a href='"+ obj[i].href +"' target='mainFrame'>"+ obj[i].text +"</a></dt>";
+					/*html+="<dd>";
+					for (var j=0;j<obj[i].child.length;j++){
+
+					}
+					html+="</dd>";*/
+					html+="</dl>";
+				}
+				document.getElementById("popmenu").innerHTML=html; 
+				parent.mainFrame.location=obj[0].href;
+			}
+			var url=window.location.toString().match(/module=(\d+)/)[1];
+			switch (url){
+				case "1":
+					initMenu(jdMenu._m1);
+					break;
+				case "2":
+					initMenu(jdMenu._m2);
+					break;
+                case "3":
+					initMenu(jdMenu._m3);
+					break;
+                case "4":
+					initMenu(jdMenu._m4);
+					break;
+				case "5":
+					initMenu(jdMenu._m5);
+					break;
+
+                case "6":
+					initMenu(jdMenu._m6);
+					break;
+						
+				default:
+					initMenu(jdMenu._m1);
+					break;
+			}
+		})();
+	</script>
+	<script type="text/javascript">
+		(function(){
+			$("#popmenu a").bind("click",function(){
+				$("#popmenu .curr").removeClass("curr");
+				var index=$("#popmenu a").index(this);
+				$("#popmenu dl").eq(index).addClass("curr");
+			});
+			$("#control").bind("click",function(){
+				parent.document.getElementsByTagName('frameset')[1].cols=(parent.document.getElementsByTagName('frameset')[1].cols=='10,*')?'169,*':'10,*';
+				document.getElementById('popmenu').style.display=(document.getElementById('popmenu').style.display=='none')?'':'none';
+				document.getElementById('control').className=(document.getElementById('control').className=='control')?'control switch':'control';
+			});
+		})()
+	</script>
+</body>
+</html>

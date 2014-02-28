@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="home" namespace="/" extends="cms-admin">
+        <action name="index" class="com.flynn.mycms.web.common.HomeAction">
+            <result>/WEB-INF/vm/home/home.vm</result>
+        </action>
+        <action name="topFrame" method="frame" class="com.flynn.mycms.web.common.HomeAction">
+            <result>/WEB-INF/vm/home/topFrame.vm</result>
+            </action>
+        <action name="leftFrame" method="frame" class="com.flynn.mycms.web.common.HomeAction">
+            <result>/WEB-INF/vm/home/leftFrame.vm</result>
+            </action>
+        <action name="welcome" method="welcome" class="com.flynn.mycms.web.common.HomeAction">
+            <result>/WEB-INF/vm/home/welcome.vm</result>
+            </action>
+    </package>
+</struts>

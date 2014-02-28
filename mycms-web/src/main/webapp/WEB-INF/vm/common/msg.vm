@@ -1,0 +1,14 @@
+#* @vtlvariable name="result" type="com.jd.common.web.result.Result" *#
+#* @vtlvariable name="msg" type="java.lang.String" *#
+#* @vtlvariable name="refer" type="java.lang.String" *#
+<table border="0">
+    <tr>
+        <td rowspan="2" width="80" valign="middle">
+            #if($result.success) <img src="/misc/img/success.png" width="64" height="64"/> #else <img src="/misc/img/stop.png" width="64" height="64"/> #end 
+        </td>
+        <td>$msg</td>
+    </tr>
+    <tr>
+        <td><a href="$refer">µã»÷Õâ¶ù·µ»Ø</a></td>
+    </tr>
+</table> 

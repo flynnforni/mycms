@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK"?>
+<profilesXml xmlns="http://maven.apache.org/PROFILES/1.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/PROFILES/1.0.0 http://maven.apache.org/xsd/profiles-1.0.0.xsd">
+    <profiles>
+		<profile>
+			<id>test</id>
+			<properties>			    
+			
+                <!-- 开始 第二部分: 数据库配置，发布时需运维配置JNDI   注意注意  暂时先用它-->
+                <!--数据库连接的方式-->
+                <serverside.jdbc.datasource.type>dbcp</serverside.jdbc.datasource.type>
+                <serverside.jdbc.driver>com.mysql.jdbc.Driver</serverside.jdbc.driver>
+                <serverside.jdbc.url>jdbc:mysql://localhost:3306/flynn_test?autoReconnect=true</serverside.jdbc.url>
+                <serverside.jdbc.username>root</serverside.jdbc.username>
+                <serverside.jdbc.password>123456</serverside.jdbc.password>		 
+                <!-- 数据库连接方式结束 -->
+                 <!-- 开始 第二部分: 数据库配置，发布时需运维配置JNDI -->
+                <!--数据库连接的方式
+                <serverside.jdbc.datasource.type>jndi</serverside.jdbc.datasource.type>
+                -->
+
+                 <!--mongo 配置-->
+                <mobile-mall.mongo.db.host1>192.168.192.54</mobile-mall.mongo.db.host1>
+                <mobile-mall.mongo.db.host2>192.168.192.55</mobile-mall.mongo.db.host2>
+                <mobile-mall.mongo.db.host3>192.168.192.55</mobile-mall.mongo.db.host3>
+                <mobile-mall.mongo.db.port>28010</mobile-mall.mongo.db.port>
+                <mobile-mall.mongo.db.name>mobile_msg</mobile-mall.mongo.db.name>
+                <mobile-mall.mongo.db.username>mobile</mobile-mall.mongo.db.username>
+                <mobile-mall.mongo.db.password>123456</mobile-mall.mongo.db.password>
+
+
+                <!-- 开始 第四部分: 服务器配置，发布时需找运维确定 -->
+                <!--velocity相关配置-->
+                <serverside.domain.name>localhost:8080</serverside.domain.name>
+                 <serverside.asset.domain.name>localhost:8080</serverside.asset.domain.name>
+                  <serverside.hrm.login.address>localhost:8080</serverside.hrm.login.address>
+                
+                
+                <!--日志记录的级别-->
+                <serverside.log.level>INFO</serverside.log.level>
+                <!--日志记录的地方-->
+                <serverside.log.path>/home/mycms/logs</serverside.log.path>
+                <!-- 结束 第四部分: 服务器配置，发布时需找运维确定 -->
+                <!--记录用户登录信息的cookie名称-->
+                <serverside.login.cookie.key>_applogin_</serverside.login.cookie.key>
+                <!-- 结束 第五部分: 开发框架配置，发布人修改 -->
+                <serverside.struts.devMode>true</serverside.struts.devMode>
+                <!-- 结束 第五部分: 开发框架配置，发布人修改 -->
+           </properties>
+		</profile>
+	</profiles>
+
+</profilesXml>

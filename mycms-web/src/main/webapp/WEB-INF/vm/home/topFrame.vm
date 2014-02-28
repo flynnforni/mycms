@@ -1,0 +1,48 @@
+#* @vtlvariable name="loginContext" type="com.jd.common.struts.context.LoginContext" *#
+#set($layout="defaultLayout.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>jd-tuan</title>
+    <link rel="stylesheet" type="text/css" href="$!assetModule.getTarget("/css/erpbase.css")" media="all" />
+    <link rel="stylesheet" type="text/css" href="/misc/skin/preview/style.css" media="all" />
+    <script type="text/javascript" src="$!assetModule.getTarget("/js/jquery-1.4.2.min.js")"></script>
+    <script type="text/javascript" src="$!assetModule.getTarget("/js/cms.base.js")"></script>
+</head>
+
+<body id="topframe">
+<div id="header">
+    <div class="logo"><img src="$!assetModule.getTarget("/pop-man/201007/skin/i/logo1.gif")" alt="POP - MAN"/></div>
+    <div class="fl">
+##        <div class="login-info">您好,$!loginContext.getPin()!欢迎来到手机管理后台!<a href="/logout.action" target="_top">[退出]</a></div>
+##        <div class="version"></div>
+        <span class="clr"></span>
+
+        <div id="nav">
+            <ul>
+				<li class="curr"><span><a href="/leftFrame.action?module=1" target="leftFrame">活动管理</a></span></li>
+				<li><span><a href="/leftFrame.action?module=2" target="leftFrame">M版管理</a></span></li>
+				<li><span><a href="/leftFrame.action?module=3" target="leftFrame">客户端管理</a></span></li>
+                <li><span><a href="/leftFrame.action?module=4" target="leftFrame">消息后台管理</a></span></li>
+                <li><span><a href="/leftFrame.action?module=5" target="leftFrame">LBS优惠券</a></span></li>
+                <li><span><a href="/leftFrame.action?module=6" target="leftFrame">价格举报</a></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function() {
+        $("#nav a").bind("click", function() {
+            $("#nav .curr").removeClass("curr");
+            var index = $("#nav a").index(this);
+            $("#nav li").eq(index).addClass("curr");
+        })
+    })()
+</script>
+   <!--[if gte IE 6]>
+    <script type="text/javascript">JQuery.widthForIE6({min:1003,padding:0});</script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation" value="classpath:sqlmap-config.xml"/>
+    </bean>
+
+	<bean id="testMongoDao" class="com.flynn.myblog.dao.impl.TestMongoDaoImpl" >
+		<constructor-arg ref="datastore"></constructor-arg>
+	</bean>
+	<bean id="deviceTokenDao" class="com.flynn.myblog.dao.impl.DeviceTokenDaoImpl" >
+		<constructor-arg ref="datastore"></constructor-arg>
+	</bean>
+	<bean id="bCMsgSubscribeDao" class="com.flynn.myblog.dao.impl.BCMsgSubscribeDaoImpl" >
+		<constructor-arg ref="datastore"></constructor-arg>
+	</bean>
+	<bean id="bCMsgDao" class="com.flynn.myblog.dao.impl.BCMsgDaoImpl" >
+		<constructor-arg ref="datastore"></constructor-arg>
+	</bean>
+	<bean id="userInfoDao" class="com.flynn.mycms.dao.impl.UserInfoDaoImpl" >
+	</bean>
+</beans>

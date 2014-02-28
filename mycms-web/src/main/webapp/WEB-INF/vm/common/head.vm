@@ -1,0 +1,16 @@
+<head>
+    <title>#if($title)$title - #{end}手机客户端后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="$assetModule.getTarget("/pop-man/201007/skin/erpbase.css")" media="all"/>
+    <script type="text/javascript" src="$assetModule.getTarget("/js/jquery-1.4.2.min.js")"></script>
+    <script type="text/javascript" src="$assetModule.getTarget("/pop-man/201007/js/pop.base.js")"></script>
+    <!--script type="text/javascript" src="/common/js/common.js"></script-->
+    <script type="text/javascript">
+        /**
+        * 删除左右两端的空格
+        */
+        String.prototype.trim=function()
+        {
+             return this.replace(/(^\s*)(\s*$)/g, '');
+        }
+    </script>
+</head>

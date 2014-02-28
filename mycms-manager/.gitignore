@@ -1,0 +1,12 @@
+###ignore eclipse project files###
+/.settings/
+.classpath
+.project
+
+###ignore java files###
+/src/main/java/META-INF
+/META-INF/
+.class
+
+###ignore maven files###
+/target/

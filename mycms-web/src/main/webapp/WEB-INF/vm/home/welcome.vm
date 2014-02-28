@@ -1,0 +1,5 @@
+<div style="font-size:15px;font-weight:bold;">
+&nbsp;&nbsp;欢迎,<font color="#006400"><strong>$!loginContext.pin
+    </strong></font>
+登录cms管理系统！
+</div>

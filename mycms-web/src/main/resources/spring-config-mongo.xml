@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+	
+	<bean id="mongo" class="com.mongodb.Mongo">
+		<constructor-arg>
+			<list>
+                <ref bean="address1"/>
+            </list>
+		</constructor-arg>
+	</bean>
+	<bean id="address1" class="com.mongodb.ServerAddress">
+		<constructor-arg value="${mobile-mall.mongo.db.host1}"></constructor-arg>
+        <constructor-arg value="${mobile-mall.mongo.db.port}"></constructor-arg>
+	</bean>
+		
+	<bean id="morphia" class="com.google.code.morphia.Morphia">
+    </bean>
+    
+	<bean id="datastore" class="com.google.code.morphia.DatastoreImpl">
+        <constructor-arg ref="morphia"></constructor-arg>
+        <constructor-arg ref="mongo"></constructor-arg>
+        <constructor-arg value="${mobile-mall.mongo.db.name}"></constructor-arg>
+        <constructor-arg value="${mobile-mall.mongo.db.username}"></constructor-arg>
+        <constructor-arg value="${mobile-mall.mongo.db.password}"></constructor-arg>
+    </bean>
+</beans>

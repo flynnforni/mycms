@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.objectFactory" value="spring"/>
+    <constant name="struts.objectFactory.spring.autoWire " value="type"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.multipart.saveDir" value="./imgtemp"/>
+    <constant name="struts.custom.i18n.resources" value="message/message,message/info"/>
+
+    <package name="cms-admin" extends="struts-default">
+    	<result-types>
+    		<result-type name="velocity" class="com.flynn.mycms.common.velocity.MVelocityLayoutResult" default="true" />
+    	</result-types>       
+        <global-results>
+            <result name="exception">/WEB-INF/vm/error.vm</result>
+            <result name="error">/WEB-INF/vm/error.vm</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="exception"/>
+        </global-exception-mappings>
+    </package>
+
+    <include file="struts-cms.xml"/>
+    <include file="struts-home.xml"/>
+
+</struts>

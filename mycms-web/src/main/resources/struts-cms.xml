@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+   
+    <package name="test-mongo" namespace="/mongo" extends="json-default">
+        <action name="*" class="com.flynn.mybolg.web.test.TestMongoAction" method="{1}">
+            <result name="testSelect" type="json" >
+            	<param name="excludeNullProperties">true</param>
+            	<param name="root">result</param>
+            </result>
+            <result name="testInsert"></result>
+        </action>
+    </package>
+    
+    <package name="test-js" namespace="/test" extends="blog-admin">
+        <action name="test-js" class="com.flynn.mybolg.web.test.TestJsAction" method="test">
+            <result >/WEB-INF/vm/test/testJs.vm</result>
+        </action>
+    </package>
+
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+	
+	<bean id="testRepeat" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="testService"></property>
+		<property name="targetMethod" value="testQuartz"></property>
+		<property name="concurrent" value="false"/>
+	</bean>
+	
+	<bean id="testRepeatTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="testRepeat"></property>
+		<property name="startDelay" value="60000"></property>
+		<property name="repeatInterval" value="60000"></property>
+	</bean>
+	<bean id="testRepeatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" autowire="no">
+		<property name="triggers">
+			<list>
+				<ref bean="testRepeatTrigger" />
+			</list>
+		</property>
+		<property name="autoStartup">
+			<value>true</value>
+		</property>
+	</bean>
+</beans>

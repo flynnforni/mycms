@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+
+    <bean id="velocityUrl" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <!--本身的 -->
+                <entry key="homeModule">
+                    <bean class="com.flynn.mycms.common.base.CmsUrl">
+                        <property name="url" value="http://${serverside.domain.name}/"/>
+                        <property name="charsetName" value="utf-8"/>
+                    </bean>
+                </entry>
+                <!--样式、js、图片地址-->
+                <entry key="assetModule">
+                    <bean class="com.flynn.mycms.common.base.CmsUrl">
+                        <property name="url" value="http://${serverside.domain.name}/"/>
+                    </bean>
+                </entry>
+                <entry key="loginUrl">
+                    <bean class="com.flynn.mycms.common.base.CmsUrl">
+                        <property name="url" value="http://${serverside.domain.name}"/>
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+
+</beans>

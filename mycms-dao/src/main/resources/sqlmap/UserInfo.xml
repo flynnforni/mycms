@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserInfo">
+
+    <typeAlias alias="UserInfo" type="com.flynn.mycms.domain.UserInfo"/>
+
+    <resultMap id="UserInfoResultMap" class="UserInfo">
+        <result property="pin" column="pin"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <sql id="selectField">
+        activity_id,aid,activity_code, position_code,title, type, wareids, content, keyword, author, start_date, end_date, status, sortno, created, modified,applier,department,edit,function_id,position,cid,clients
+    </sql>
+
+    <sql id="condition">
+        <dynamic prepend="where">
+            <isGreaterEqual prepend="and" property="cid" compareValue="0">
+                cid = 0
+            </isGreaterEqual>
+            <isNotEmpty prepend="and" property="title">
+                title like '%$title$%'
+            </isNotEmpty>            
+            <isGreaterEqual prepend="and" property="status" compareValue="0">
+                status = #status#
+            </isGreaterEqual>
+            <isNotEmpty prepend="and" property="positionCode" >
+                position_code = #positionCode#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <select id="getUserInfoByPin" parameterClass="int" resultMap="UserInfo.UserInfoResultMap">
+         select
+        pin,password
+        from user_account
+        where pin=#value#
+    </select>
+    
+
+    <insert id="insertUserInfo" parameterClass="UserInfo">
+        <selectKey keyProperty="id" resultClass="int" type="post">
+            select last_insert_id() as value
+        </selectKey>
+        insert into user_account (pin,password)
+        values (#pin#,#password#)
+    </insert>
+
+    <update id="updateUserInfo"  parameterClass="int">
+        update user_account set 
+        	pin = #pin#, passwork = #password#
+        where activity_id = #activityId#
+    </update>
+	<!--
+    <update id="updateUserInfo"  parameterClass="UserInfo">
+        update cms_activity set 
+        	position_code = #positionCode# 
+        where position = #position#
+    </update>
+
+    <delete id="deleteUserInfo" parameterClass="int">
+        delete from cms_activity where activity_id = #value#
+    </delete>
+    -->
+
+</sqlMap>
